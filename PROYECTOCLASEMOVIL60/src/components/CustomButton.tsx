@@ -3,19 +3,24 @@ import { View,Text, TouchableOpacity,StyleSheet } from "react-native";
 interface CustomButtonProps{
     title: string;
     onClick:()=>void;
+    variant?:"primary"|"secondary";
 }
 
 export default function CustomButton({
     title,
-    onClick
+    onClick,
+    variant="primary",
 
 }:CustomButtonProps){ 
-    
+    const styles   = getStyles(variant);
+
     return(
         <TouchableOpacity
             onPress={onClick}
+            style={styles.container}
         >
-                <Text>
+                <Text
+                style={styles.text}>
                     {title}
                 </Text>
         </TouchableOpacity>
@@ -43,15 +48,21 @@ const getStyles = (variant:'primary'|'secondary')=>
             width:"80%",
             marginTop:12,
 
-            backgroundColor:variant==="primary"?"Black":"white",
-            borderRadius:8,
-            borderWidth:1,
-            borderColor:'white',  
+            backgroundColor:
+                variant==="primary"?"#dad7e98a":
+                variant==="secondary"?"#dad7e900":"transparent",
+            borderRadius:15,
+            borderWidth:
+            variant === "primary" ? 1 : 0,
+            borderColor:
+            variant === "primary" ? "#ffffff": "transparent",  
         },
         text:{
             color: 
-                variant==="primary"?"white":"black",
+                variant==="primary"?"#ffffff":
+                variant==="secondary"?"#050505":"black",
             fontSize:18,
             fontWeight:"500"
         }
+
     })
