@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, requireNativeComponent } from "react-native";
 import CustomButton from './src/components/CustomButton';
 import { requireNativeModule } from "expo";
+import CustomInput from "./src/components/CustomInput";
 
 export default function App(){
     const handleOnlogin=()=>{
@@ -22,7 +23,7 @@ export default function App(){
         <View style={style.container}>
             
             <View style={style.card}>
-            <Text>Open up App</Text>
+            <Text>Open App</Text>
             <StatusBar style="auto"/>
             <View style={style.buttonsWrapper}>
             <CustomButton 
@@ -31,11 +32,21 @@ export default function App(){
             <CustomButton 
             title={'Salir'}
             onClick={handleOnlogout}
-            variant="primary"/>
+            variant="secondary"/>
             <CustomButton
             title={"Olvido Contraseña"}
             onClick={handleforgetpassword}
-            variant="secondary"/>
+            variant="terciary"/>
+            <CustomInput
+            placeholder={'email'}
+            onChange={()=>{}}
+            value={''}
+            typeInput={"email"}/>
+            <CustomInput
+            placeholder={'password'}
+            onChange={()=>{}}
+            value={''}
+            typeInput={"password"}/>
         </View>
         </View>
         </View>
@@ -45,7 +56,6 @@ export default function App(){
 const style=StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -67,7 +77,7 @@ const style=StyleSheet.create({
         height:"30%",
         
         alignItems:"center",
-        justifyContent:"flex-start",
+        justifyContent:"space-around",
     },
 
 });

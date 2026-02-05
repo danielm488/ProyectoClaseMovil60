@@ -3,7 +3,7 @@ import { View,Text, TouchableOpacity,StyleSheet } from "react-native";
 interface CustomButtonProps{
     title: string;
     onClick:()=>void;
-    variant?:"primary"|"secondary";
+    variant?:"primary"|"secondary"|"terciary";
 }
 
 export default function CustomButton({
@@ -40,7 +40,7 @@ const styles= StyleSheet.create({
 
 });
 
-const getStyles = (variant:'primary'|'secondary')=>
+const getStyles = (variant:'primary'|'secondary'|'terciary')=>
     StyleSheet.create({
         container:{
             paddingVertical:15,
@@ -50,7 +50,7 @@ const getStyles = (variant:'primary'|'secondary')=>
 
             backgroundColor:
                 variant==="primary"?"#dad7e98a":
-                variant==="secondary"?"#dad7e900":"transparent",
+                variant==="secondary"?"#573cdeb7":"transparent",
             borderRadius:15,
             borderWidth:
             variant === "primary" ? 1 : 0,
@@ -60,7 +60,7 @@ const getStyles = (variant:'primary'|'secondary')=>
         text:{
             color: 
                 variant==="primary"?"#ffffff":
-                variant==="secondary"?"#050505":"black",
+                variant==="secondary"?"#d6e531":"black",
             fontSize:18,
             fontWeight:"500"
         }
