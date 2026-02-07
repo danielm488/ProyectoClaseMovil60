@@ -4,7 +4,7 @@ import { useState } from "react";
 
 type Props={
     placeholder:string,
-    onChange:()=> void,
+    onChange:(text:string)=> void,
     value:string,
     typeInput : 'password' | 'email' | 'numeric' | 'text',
 }
@@ -13,8 +13,11 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
 //uso de variables de estado local
     //[nombreDeVariable,funcion]=useState(<valorInicial>)
     const [isSecureText,setIsSecureText]=useState(typeInput==='password');
+    const isPasswordField= typeInput==="password";
 
-    
+    const icon: typeof MaterialIcons["name"]|undefined=
+        typeInput==="email"?"email":
+            typeInput==="password"?"lock":undefined
 
     return(
         //wrapper
@@ -27,19 +30,18 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
                         color={"#000000"}
                     />
                     <TextInput
-                        placeholder={"email"}
+                        style={styles.input}
+                        placeholder={placeholder}
                         value={value}
                         onChangeText={onChange}
                         secureTextEntry={isSecureText}
                     />
-                    <TouchableOpacity
+                    {isPasswordField && <TouchableOpacity
                         onPress={
-                            ()=>{
-                                
-                            }
+                            ()=>{setIsSecureText(!isSecureText)}
                         }>
-                         <Ionicons name={"eye"} size={20}/>
-                    </TouchableOpacity>
+                         <Ionicons name={isSecureText?'eye-off':'eye'} size={20}/>
+                    </TouchableOpacity>}
                    
             </View>
             <View>
@@ -54,7 +56,7 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
             marginBottom:10,
             width:"100%",
             paddingHorizontal:20,
-            backgroundColor:"blue",
+            backgroundColor:"transparrent",
 
         },
         inputContainer:{
@@ -62,14 +64,16 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
             alignItems:"center",
             justifyContent:"space-between",
             
+            
             borderWidth:1,
             borderColor:"#000",
             borderRadius:6,
             paddingHorizontal:13,
+
         },
-        icon:{
-            
-        
+        input:{
+            paddingHorizontal:10,
+            width: "80%",
         }
 
     })

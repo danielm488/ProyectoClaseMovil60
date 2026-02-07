@@ -3,15 +3,20 @@ import { StyleSheet, View, Text, requireNativeComponent } from "react-native";
 import CustomButton from './src/components/CustomButton';
 import { requireNativeModule } from "expo";
 import CustomInput from "./src/components/CustomInput";
+import { useState } from "react";
 
 export default function App(){
+    const [email,setEmail] =useState("example@email.com");
+    const [password,setPassword] = useState("");
+
     const handleOnlogin=()=>{
-        console.log("prueba desde app");
-        alert("Alerta desde app")
+        setEmail("nuevo@gmail.com")
+        setPassword("password")
     }
 
     const handleOnlogout=()=>{
-        alert("Alerta logout desde app")
+        setEmail("example@gmail.com")
+        setPassword("")
     }
 
     const handleforgetpassword=()=>{
@@ -26,27 +31,35 @@ export default function App(){
             <Text>Open App</Text>
             <StatusBar style="auto"/>
             <View style={style.buttonsWrapper}>
-            <CustomButton 
-            title={"Login"}
-            onClick={handleOnlogin}/>
-            <CustomButton 
-            title={'Salir'}
-            onClick={handleOnlogout}
-            variant="secondary"/>
-            <CustomButton
-            title={"Olvido Contraseña"}
-            onClick={handleforgetpassword}
-            variant="terciary"/>
+             <CustomInput
+                placeholder={'email'}
+                onChange={setEmail}
+                value={email}
+                typeInput={"email"}/>
             <CustomInput
-            placeholder={'email'}
-            onChange={()=>{}}
-            value={''}
-            typeInput={"email"}/>
+                placeholder={'password'}
+                onChange={setPassword}
+                value={password}
+                typeInput={"password"}/>
+            
             <CustomInput
-            placeholder={'password'}
-            onChange={()=>{}}
-            value={''}
-            typeInput={"password"}/>
+                placeholder={''}
+                onChange={()=>{}}
+                value={"Name"}
+                typeInput={"text"}/>
+            
+            {/*<CustomButton
+                title={"Olvido Contraseña"}
+                onClick={handleforgetpassword}
+                variant="terciary"/>*/}
+            
+            <CustomButton 
+                title={"Login"}
+                onClick={handleOnlogin}/>
+            <CustomButton 
+                title={'Salir'}
+                onClick={handleOnlogout}
+                variant="secondary"/>
         </View>
         </View>
         </View>
@@ -69,15 +82,16 @@ const style=StyleSheet.create({
     },
 
     buttonsWrapper:{
-        backgroundColor:'green',
-        marginTop:15,
+        backgroundColor:'#30a3904b',
+        marginTop:40,
         borderRadius:5,
         
         width:"85%",
-        height:"30%",
+        height:"20%",
         
+        flexDirection:"column",
         alignItems:"center",
-        justifyContent:"space-around",
+        alignContent:"space-around",
     },
 
 });
