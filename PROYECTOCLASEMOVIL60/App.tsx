@@ -47,6 +47,13 @@ export default function App(){
                 onChange={()=>{}}
                 value={"Name"}
                 typeInput={"text"}/>
+
+            <CustomInput
+                placeholder={''}
+                onChange={()=>{}}
+                value={"Numero"}
+                typeInput={"number"}/>
+            
             
             {/*<CustomButton
                 title={"Olvido Contraseña"}
