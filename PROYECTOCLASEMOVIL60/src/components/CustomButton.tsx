@@ -1,9 +1,10 @@
 import { View,Text, TouchableOpacity,StyleSheet } from "react-native";
 
+
 interface CustomButtonProps{
     title: string;
     onClick:()=>void;
-    variant?:"primary"|"secondary"|"terciary";
+    variant?:"primary"|"secondary";
 }
 
 export default function CustomButton({
@@ -40,7 +41,7 @@ const styles= StyleSheet.create({
 
 });
 
-const getStyles = (variant:'primary'|'secondary'|'terciary')=>
+const getStyles = (variant:'primary'|'secondary')=>
     StyleSheet.create({
         container:{
             paddingVertical:15,

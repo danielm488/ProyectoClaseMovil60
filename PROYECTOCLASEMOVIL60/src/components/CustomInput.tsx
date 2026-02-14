@@ -11,7 +11,7 @@ type Props={
     //KeyboardOption(terciary:string)
 }
 
-export default function CustomInput({placeholder,onChange,value,typeInput}:Props){
+export default function CustomInput({placeholder,onChange,value,typeInput='text'}:Props){
 //uso de variables de estado local
     //[nombreDeVariable,funcion]=useState(<valorInicial>)
     const [isSecureText,setIsSecureText]=useState(typeInput==='password');
@@ -39,7 +39,7 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
         //wrapper
         <View style={styles.wrapper}>
             {/*inputContainer*/}
-            <View style={styles.inputContainer}>
+            <View style={[styles.inputContainer, error && styles.inputError]}>
                     <MaterialIcons
                         name={placeholder}
                         size={20}
@@ -63,7 +63,7 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
                     </TouchableOpacity>}
             </View>
             <View>
-                {error && <Text>{error}</Text>}
+                {error && <Text style={styles.inputError}>{error}</Text>}
             </View>
         </View>
     );
@@ -71,10 +71,11 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
 
  const styles= StyleSheet.create({
         wrapper:{
+            marginTop:10,
             marginBottom:10,
             width:"100%",
             paddingHorizontal:20,
-            backgroundColor:"transparrent",
+            backgroundColor:"transparent",
 
         },
         inputContainer:{
@@ -92,6 +93,11 @@ export default function CustomInput({placeholder,onChange,value,typeInput}:Props
         input:{
             paddingHorizontal:10,
             width: "80%",
+        },
+
+        inputError:{
+            borderColor:"red",
+            color:"red",
         }
 
     })
