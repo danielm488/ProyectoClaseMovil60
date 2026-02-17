@@ -11,10 +11,9 @@ export default function CustomButton({
     title,
     onClick,
     variant="primary",
-
 }:CustomButtonProps){ 
-    const styles   = getStyles(variant);
-
+        const styles   = getStyles(variant);
+    
     return(
         <TouchableOpacity
             onPress={onClick}
