@@ -4,14 +4,14 @@ import CustomButton from '../components/CustomButton';
 import { requireNativeModule } from "expo";
 import CustomInput from "../components/CustomInput";
 import { useState } from "react";
+import HomeScreen from "./HomeScreen";
 
-export default function App(){
+export default function LoginScreen({navigation}:any){
     const [email,setEmail] =useState("");
     const [password,setPassword] = useState("");
 
     const handleOnlogin=()=>{
-        setEmail("nuevo@gmail.com")
-        setPassword("password")
+        navigation.navigate("Tabs",{Screen:"Home"})
     }
 
     const handleOnlogout=()=>{
