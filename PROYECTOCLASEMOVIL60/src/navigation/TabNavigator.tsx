@@ -2,10 +2,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../Screens/HomeScreen";
 import ProfileScreen from "../Screens/ProfileScreens";
+import RegisterScreen from "../Screens/RegisterScreen"
 
 export type TabsParamList={
-   Home:{email:string}
-   Profile:undefined
+   Home:undefined;
+   Profile:undefined;
+   Register:undefined;
 
 }
 
@@ -22,6 +24,11 @@ export default function TabsNavigator(){
             <Tab.Screen
                 name="Profile"
                 component={ProfileScreen}
+            />
+
+            <Tab.Screen
+                name="Register"
+                component={RegisterScreen}
             />
         
             </Tab.Navigator>
