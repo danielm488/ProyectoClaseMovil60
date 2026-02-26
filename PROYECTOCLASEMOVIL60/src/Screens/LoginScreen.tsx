@@ -1,17 +1,31 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, requireNativeComponent } from "react-native";
+import { StyleSheet, View, Text, requireNativeComponent, Alert } from "react-native";
 import CustomButton from '../components/CustomButton';
 import { requireNativeModule } from "expo";
 import CustomInput from "../components/CustomInput";
 import { useState } from "react";
 import HomeScreen from "./HomeScreen";
+import {useAuth} from "../Contexts/AuthContext"
+
+const {login,isAllow}= useAuth();
 
 export default function LoginScreen({navigation}:any){
     const [email,setEmail] =useState("");
     const [password,setPassword] = useState("");
 
+    const {}=useAuth();
+
     const handleOnlogin=()=>{
-        navigation.navigate("Tabs",{Screen:"Home"})
+        try{
+            const allowed = login(email,password);
+            if(allowed){
+                navigation.navigate("Tabs",{Screen:"Home"})
+            }else {
+                Alert.prompt("Credenciales Incorrectas"," Por favor ingrese un correo .edu")
+            }
+        }catch(error:any){
+            Alert.alert(error.message)
+        };
     }
 
     const handleOnlogout=()=>{

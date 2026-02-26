@@ -1,12 +1,14 @@
-import { NavigationContainer } from "@react-navigation/native";
-import {View} from "react-native";
+import  {NavigationContainer} from "@react-navigation/native";
 import StackNavigator from "./src/navigation/StackNavigator";
+import { AuthProvider,useAuth } from "./src/Contexts/AuthContext";
 
 export default function App(){
     
     return(
-        <NavigationContainer>
-            <StackNavigator/>
-        </NavigationContainer>
+       <AuthProvider> 
+            <NavigationContainer>
+                <StackNavigator/>
+            </NavigationContainer>
+        </AuthProvider>
     );
 }
