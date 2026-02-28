@@ -6,6 +6,7 @@ import CustomInput from "../components/CustomInput";
 import { useState } from "react";
 import HomeScreen from "./HomeScreen";
 import {useAuth} from "../Contexts/AuthContext"
+import React from "react";
 
 const {login,isAllow}= useAuth();
 
