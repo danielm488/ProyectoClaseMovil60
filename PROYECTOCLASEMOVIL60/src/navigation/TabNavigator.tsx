@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../Screens/HomeScreen";
 import ProfileScreen from "../Screens/ProfileScreens";
 import RegisterScreen from "../Screens/RegisterScreen"
+import React from "react";
 
 export type TabsParamList={
    Home:undefined;

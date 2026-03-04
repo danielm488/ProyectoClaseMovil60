@@ -1,7 +1,8 @@
-import  {NavigationContainer} from "@react-navigation/native";
 import StackNavigator from "./src/navigation/StackNavigator";
 import { AuthProvider } from "./src/Contexts/AuthContext";
 import { LanguageProvider } from "./src/Contexts/LanguageContext";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App(){
     

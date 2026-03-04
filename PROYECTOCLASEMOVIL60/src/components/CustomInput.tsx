@@ -1,6 +1,7 @@
 import { View,Text, TextInput, StyleSheet, TouchableOpacity, KeyboardTypeOptions } from "react-native";
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import { useState } from "react";
+import React from "react";
 
 
 type Props={

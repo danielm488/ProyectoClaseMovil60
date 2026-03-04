@@ -7,6 +7,7 @@ import { useState } from "react";
 import HomeScreen from "./HomeScreen";
 import {useAuth} from "../Contexts/AuthContext"
 import React from "react";
+import { i18n } from "../Contexts/LanguageContext";
 
 const {login,isAllow}= useAuth();
 
@@ -43,11 +44,11 @@ export default function LoginScreen({navigation}:any){
         <View style={style.container}>
             
             <View style={style.card}>
-            <Text>Open App</Text>
+            <Text>{i18n.t('signIn')}</Text>
             <StatusBar style="auto"/>
             <View style={style.buttonsWrapper}>
              <CustomInput
-                placeholder={'email'}
+                placeholder={i18n.t('enterEmail')}
                 onChange={setEmail}
                 value={email}
                 typeInput={"email"}/>
@@ -79,7 +80,7 @@ export default function LoginScreen({navigation}:any){
                 title={"Login"}
                 onClick={handleOnlogin}/>
             <CustomButton 
-                title={'Salir'}
+                title={i18n.t('exit')}
                 onClick={handleOnlogout}
                 variant="secondary"/>
         </View>

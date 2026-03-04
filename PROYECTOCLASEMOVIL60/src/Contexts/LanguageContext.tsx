@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { I18n } from "i18n-js";
+import React from "react";
 
 
 type Language= 'es'|'en'|'de'|'fr';
@@ -14,11 +15,15 @@ type LanguageContextType={
 //configuracion de libreria de traducciones, paso 1: definicion de diccionario
 const translations={
     en:{sigIn:"Sing In",
-        welcome: "Welcome"},
+        welcome: "Welcome",
+        enterEmail:'Please fill your email',
+        exit:"Logout"},
     es:{sigIn:"Inciar Sesion",
-        welcom:"Bienvenido"},
+        welcom:"Bienvenido",
+        enterEmail:'Ingrese su correo'},
     de: {sigIn:"anmelden",
-        welcom:"wilkommen"},
+        welcom:"wilkommen",
+        enterEmail:'Please fill your email'},
     fr: {sigIn:"connexion",
         welcom:"wilkommen"},
 }

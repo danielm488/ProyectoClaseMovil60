@@ -1,5 +1,6 @@
-import { createContext, use, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import LoginScreen from "../Screens/LoginScreen";
+import React from "react";
 
 type User={
     id?:string;
